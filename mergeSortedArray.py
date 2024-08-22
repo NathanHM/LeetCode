@@ -3,7 +3,6 @@ m = 3
 nums2 = [2, 5, 6]
 n = 3
 
-
 def mergeSorted(nums1, nums2, m, n):
 
     i = 0
