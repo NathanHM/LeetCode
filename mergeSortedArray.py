@@ -1,39 +1,29 @@
-nums1 = [1, 2, 3, 0, 0, 0]
+nums1 = [4, 5, 6, 0, 0, 0]
 m = 3
-nums2 = [2, 5, 6]
+nums2 = [1, 2, 3]
 n = 3
 
-def mergeSorted(nums1, nums2, m, n):
 
-    i = 0
+def newMergeSorted(nums1, nums2, m, n):
 
-    # edge case: If nums1 is empty and nums2 is not, then swap
-    # all values in nums1 for values in nums 2
-    if m == 0 and n > 0:
-        for index in range(n):
-            nums1[index] = nums2[index]
-        return
-    # edge case: If nums2 is empty, do not change nums1
-    elif n == 0:
-        return
-    else:
-        # Iterate through nums 1
-        for j in range(m + n):
-            # if nums2 has a lower value in it's first postion, swap 
-            # it for the present value in nums2
-            if nums2[i] < nums1[j]:
-                proxy = nums1[j]
-                nums1[j] = nums2[i]
-                nums2[i] = proxy
-                del proxy
-            # once past all the numbers present in nums1, swap for 
-            # values in nums2
-            if j >= m:
-                nums1[j] = nums2[i]
-                i += 1
-        return
+    p1 = m - 1
+    p2 = n - 1
+    p = m + n - 1
+
+    while p >= 0 and p2 != -1:
+        if nums2[p2] <= nums1[p1]:
+            if p1 == -1:
+                nums1[p] = nums2[p2]
+                p2 -= 1
+            else:
+                nums1[p] = nums1[p1]
+                p1 -= 1
+        else:
+            nums1[p] = nums2[p2]
+            p2 -= 1
+        p -= 1
 
 
-mergeSorted(nums1, nums2, m, n)
+newMergeSorted(nums1, nums2, m, n)
 
 print(nums1)
