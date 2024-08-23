@@ -55,18 +55,8 @@ def giveCandy(ratings):
     candies = [1] * len(ratings)
 
     for i in range(len(ratings)):
-        print(i)
         candies = findPeaks(i, ratings, candies)
-        print(candies)
 
     return sum(candies)
 
 giveCandy(ratings)
-
-#j = 12001
-#for i in reversed(range(len(ratings))):
-#    if i < j:
-#        print(i)
-#        j = i
-#    else:
-#        break
